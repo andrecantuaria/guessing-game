@@ -10,6 +10,7 @@
     --app-red: #e6364e;
     --app-dark-gray: #26232b;
     --app-pink: #ff00ff;
+    --app-dark-pink: #9a009a;
 }
     
 body {
@@ -18,7 +19,29 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-rendering: geometricPrecision;
-    overflow:auto;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--app-white);
+    letter-spacing: 0.2px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--app-pink);
+    letter-spacing: 0.2px;
+    margin: 0;
+}
+
+p {
+    font-size:18px;
+    font-weight: 400;
+    color: var(--app-white);
+    margin: 0;
 }
 
 .container {
@@ -27,21 +50,45 @@ body {
 }
 
 .center {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-h1 {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--app-white);
-    letter-spacing: 0.2px;
+/* Container Game*/
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--app-pink);
+    max-width: 600px;
+    height: auto;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    align-items: center;
+    gap: 25px;
 }
 
-p {
-    font-size:14px;
-    font-weight: 400;
-    color: var(--app-white);
+.circular-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--app-white);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    max-height: 120px;
+}
+
+.input {
+    display: flex;
+    width: 450px;
+    height: 30px;
+    max-height: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--app-dark-pink);
 }
