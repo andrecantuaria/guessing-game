@@ -24,9 +24,8 @@ const numberOfGuesses = selectById('number-of-guesses');
 const guessedNumber = selectById('guessed-number');
 const outputMessage = selectById('output-message');
 
-let secretNumber = 60;  
+let secretNumber = Math.floor(Math.random() * 101);  
 
-// basic validation function
 function validation() {
     const userGuess = parseInt(guessedNumber.value);
     const backgroundElement = document.getElementById('fireworks');
@@ -36,24 +35,42 @@ function validation() {
     } else if (userGuess > secretNumber && userGuess <= secretNumber + 5) {
         return 'OMG, Your number is higher, but so close!';
     } else if (userGuess > secretNumber) {
-        return 'Your number is higher! Try another one!';
+        return 'Your number is higher!';
     } else if (userGuess < secretNumber && userGuess >= secretNumber - 5) {
         return 'OMG! Your number is smaller, but so close!';
     } else if (userGuess < secretNumber) {
-        return 'Your number is smaller. Try another one.';
+        return 'Your number is smaller!';
 
         
     }
   }
 
-  onEvent('keydown', guessedNumber, (event) => {
+  onEvent('keydown', document, (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault(); // Evita o envio do formulário padrão
-      const result = validation(); // Obtenha o resultado da função
-      outputMessage.textContent = result; // Defina o conteúdo da saída com base no resultado
+      event.preventDefault(); // Evita o envio do formulário
+      const result = validation(); 
+      outputMessage.textContent = result; 
     }
   });
 
 
+  let numberOfAttempts = 0;
+  const limitOfAttempts = 5;
+  
+  function restrictAttempts() {
+    if (numberOfAttempts < limitOfAttempts) {
+      numberOfAttempts++;
+      return 'Attempts left: ' + (limitOfAttempts - numberOfAttempts)
+    } else if (numberOfAttempts >= limitOfAttempts) {
+      return 'Game over! Sorry, you exceeded the limits of attempts.';
+    }
+  }
+  
+  onEvent('keydown', document, (event) => {
+      if (event.key === 'Enter') {
+        const result = restrictAttempts();
+        numberOfGuesses.textContent = result;
+      }
+    });
 
-
+console.log (secretNumber);
