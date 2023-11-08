@@ -1,4 +1,4 @@
-@charset "utf=8";
+@charset "utf-8";
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Page                                                  */
@@ -71,7 +71,7 @@ p {
     gap: 25px;
 }
 
-.circular-container {
+.imput-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +83,7 @@ p {
     max-height: 120px;
 }
 
-.input {
+.output-container {
     display: flex;
     width: 450px;
     height: 30px;
@@ -91,4 +91,24 @@ p {
     justify-content: center;
     align-items: center;
     background-color: var(--app-dark-pink);
+}
+
+#guessed-number {
+    font-size: 50px; 
+    font-weight: 600; 
+    color: var(--app-pink);
+    border: none;
+    text-align: center;
+    background: none; 
+    width: 100px;
+}
+
+#guessed-number:focus {
+    outline: none;
+    border: none;
+}
+
+#fireworks {
+    background-image: url('../img/fireworks.gif');
+    background-repeat: repeat;
 }
